@@ -11,3 +11,8 @@ Commande | Description
 `false` | échoue en ne faisant rien, les arguments sont ignorés
 `apt update` | met à jour les packages
 `apt upgrade` | promeut les packages
+`crontab -e` | ouvre l'éditeur des tâches cron (planificateur de jobs)
+`less input` | affiche le contenu de l'entrée page par page
+`tail` | affiche la fin d'un fichier
+`curl wttr.in/Montpellier` | affiche la météo de Montpellier
+`telnet towel.blinkenlights.nl` | Star Wars épisode IV, en ASCII-Art ^^
