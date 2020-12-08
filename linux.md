@@ -16,3 +16,4 @@ Commande | Description
 `tail` | affiche la fin d'un fichier
 `curl wttr.in/Montpellier` | affiche la météo de Montpellier
 `telnet towel.blinkenlights.nl` | Star Wars épisode IV, en ASCII-Art ^^
+`df -h` | Affiche l'espace disque restant dans un format lisible par un humain
