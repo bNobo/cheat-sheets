@@ -14,3 +14,5 @@ Commande | Description
 `N`|affiche le précédent résultat de recherche
 `gg=G`|réindente tout le fichier
 `u`|annuler les modifications
+ggVG|sélectionner tout
+y|copie le texte sélectionné
