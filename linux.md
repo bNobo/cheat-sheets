@@ -18,3 +18,4 @@ Commande | Description
 `telnet towel.blinkenlights.nl` | Star Wars épisode IV, en ASCII-Art ^^
 `df -h` | Affiche l'espace disque restant dans un format lisible par un humain
 `du -h` | Affiche l'espace disque utilisé par chaque répertoire
+`pwd` | Affiche le chemin complet du répertoire actuel
