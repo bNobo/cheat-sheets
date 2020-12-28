@@ -19,3 +19,4 @@ Commande | Description
 `df -h` | Affiche l'espace disque restant dans un format lisible par un humain
 `du -h` | Affiche l'espace disque utilisé par chaque répertoire
 `pwd` | Affiche le chemin complet du répertoire actuel
+`grep -H --color 'text to find' <file_pattern>` | Recherche un texte dans tous les fichiers correspondant au pattern (ex : *.html). Affiche toutes les lignes contenant le texte recherché précédées du nom du fichier (-H). --color permet de coloriser le texte recherché pour le rendre plus visible.
