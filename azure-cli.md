@@ -10,3 +10,5 @@ Command | Description
 --- | ---
 `az login` | authenticate on Azure with your Microsoft account
 `az account set -s <subscription_guid_or_name>` | if you have multiple subscriptions then you have to set the one you want to use
+`az extension add -n webapp` | install the webapp extension to allow webapp management
+`az extension update -n webapp` | update the webapp extension
