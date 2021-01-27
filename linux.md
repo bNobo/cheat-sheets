@@ -21,3 +21,4 @@ Commande | Description
 `pwd` | Affiche le chemin complet du répertoire actuel
 `grep -H --color 'text to find' <file_pattern>` | Recherche un texte dans tous les fichiers correspondant au pattern (ex : *.html). Affiche toutes les lignes contenant le texte recherché précédées du nom du fichier (-H). --color permet de coloriser le texte recherché pour le rendre plus visible.
 `htop` | Affiche les threads avec utilisation CPU et mémoire
+`sudo -s` | Execute le shell en tant que super user, ainsi plus besoin de taper "sudo" à chaque commande
