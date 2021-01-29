@@ -22,7 +22,7 @@ Commande | Commentaire
 `git diff nomfichier`|Affiche les modifications apportées à un fichier en particulier. Ajouter -b pour ignorer les fins de lignes
 `git fetch <remote_name>`|Fetch les modifications d'un remote
 `git log --graph --oneline`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
-`$ git log --numstat --format="" b0d6e5b.. | awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
+`$ git log --numstat --format="" b0d6e5b.. \| awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
 `git pull remote_name master`|Pull les modifications d'un remote
 `git push --all`|Push toutes les branches
 `git push --delete origin tagname`|Supprime un tag sur le remote (git tag -d tagname pour supprimer le local)
