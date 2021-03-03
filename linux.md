@@ -19,7 +19,8 @@ Commande | Description
 `df -h` | Affiche l'espace disque restant dans un format lisible par un humain
 `du -h` | Affiche l'espace disque utilisé par chaque répertoire
 `pwd` | Affiche le chemin complet du répertoire actuel
-`grep -H --color 'text to find' <file_pattern>` | Recherche un texte dans tous les fichiers correspondant au pattern (ex : *.html). Affiche toutes les lignes contenant le texte recherché précédées du nom du fichier (-H). --color permet de coloriser le texte recherché pour le rendre plus visible.
+`grep -H --color 'text to find' <file_pattern>` | Recherche un texte dans tous les fichiers correspondant au pattern (ex : \*.html). Affiche toutes les lignes contenant le texte recherché précédées du nom du fichier (-H). --color permet de coloriser le texte recherché pour le rendre plus visible.
 `htop` | Affiche les threads avec utilisation CPU et mémoire
 `sudo -s` | Execute le shell en tant que root, ainsi plus besoin de taper "sudo" à chaque commande
 `strings ./somenetcore.dll \| egrep '^[0-9]+\.[0-9]+\.[0-9]+$'` | Affiche le numéro de version d'assembly d'une dll net core (SemVer)
+`ps axo pid,ppid,pgrp,tty,tpgid,sess,comm \|awk '$2==1' \|awk '$1==$3'` | Liste les daemons
