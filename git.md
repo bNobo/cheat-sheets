@@ -47,6 +47,7 @@ Commande | Commentaire
 `git whatchanged`|Affiche l'historique des commits
 `set LESSCHARSET=UTF-8 (cmd) ou $env:LESSCHARSET="UTF-8" (powershell) ou LESSCHARSET=UTF-8 (bash)`|Défini l'encodage utilisé par less afin que les accents ne sautent plus. Définir la variable au niveau système pour être tranquille
 `git fetch origin && git reset --hard origin/master && git clean -f -d`|Force l'obtention des commits du remote quand le repo local a divergé. Attention les commits locaux seront perdus
+`git count-objects -vH`|Affiche la taille du repo
 
 ## Extras
 
