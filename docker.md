@@ -7,3 +7,11 @@ Commande | Description
 `docker run -i -t --entrypoint bash image:tag` | Idem ci-dessus mais en remplacant l'entry point de l'image par la commande bash
 `docker network create papinet` | Crée un network de type bridge et nommé papinet
 `docker run -d -p 27017:27017 --name mongoserver --network papinet mongo:bionic` | Démarre un container en le rattachant à un network. Tous les containers sur le même network peuvent communiquer entre eux, dans cet exemple un autre container pourrait accéder à celui-ci via `mongodb://mongoserver:27017`. Ca fonctionne pour tous les protocoles, ex `http://<containername>:<port>`
+
+## bonus
+
+```
+docker rmi -f `docker images | grep <repository_name> | awk '{print $3}'`
+```
+
+Supprime toutes les images d'un repository donné. A noter l'utilisation du back tick qui permet d'exécuter la commande `docker rmi` avec comme argument chaque ligne retournée par la commande `docker images`
