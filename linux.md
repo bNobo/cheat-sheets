@@ -1,5 +1,7 @@
 # Linux Cheat Sheet
 
+## Commandes
+
 Commande | Description
 --- | ---
 `alias ll='ls -lh'` | crée ou modifie un alias de commande
@@ -24,3 +26,6 @@ Commande | Description
 `sudo -s` | Execute le shell en tant que root, ainsi plus besoin de taper "sudo" à chaque commande
 `strings ./somenetcore.dll \| egrep '^[0-9]+\.[0-9]+\.[0-9]+$'` | Affiche le numéro de version d'assembly d'une dll net core (SemVer)
 `ps axo pid,ppid,pgrp,tty,tpgid,sess,comm \|awk '$2==1' \|awk '$1==$3'` | Liste les daemons
+
+## /etc/hosts
+192.168.1.1 mon.domaine.fr  alias
