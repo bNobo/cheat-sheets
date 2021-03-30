@@ -28,4 +28,11 @@ Commande | Description
 `ps axo pid,ppid,pgrp,tty,tpgid,sess,comm \|awk '$2==1' \|awk '$1==$3'` | Liste les daemons
 
 ## /etc/hosts
-192.168.1.1 mon.domaine.fr  alias
+
+`192.168.1.1 mon.domaine.fr  alias`
+
+## /etc/resolv.conf
+
+Paramétrer l'IP du serveur DNS :
+
+`nameserver 192.168.58.41`
