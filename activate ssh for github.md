@@ -1,7 +1,7 @@
 Vérifier l'existence d'une clef SSH :
 
 ```bash
-ls -al ~/.sshbNobo-patch-1
+ls -al ~/.ssh
 ```
 
 Si une clef SSH existe déjà l'utiliser, sinon poursuivre.
