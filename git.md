@@ -78,3 +78,25 @@ Se placer dans le dossier "home" et créer un fichier .bashrc contenant les comm
 cd
 echo alias ll=\'ls -hal\' >> .bashrc
 ```
+
+### Faire fonctionner le SSH vers ADO dans WSL
+
+```
+# config (~/.ssh/config)
+Host azuredevops.septeo.fr
+        IdentityFile ~/.ssh/id_rsa
+        # IdentitiesOnly yes
+        KexAlgorithms diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
+        Ciphers +aes128-cbc
+        
+# test :  should write not implemented/available error (simply test key exchange)
+ssh -T git@{FQDN}
+
+# verbosity test
+ssh -vT git@{FQDN}
+
+# fix ssh key exchange issue (ubuntu/debian based): 
+sudo ip li set mtu 1400 dev eth0
+```
+
+> Ne pas oublier de changer l'URL du remote ex `git remote set-url origin ssh://...`
