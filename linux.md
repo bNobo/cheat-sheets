@@ -26,6 +26,8 @@ Commande | Description
 `sudo -s` | Execute le shell en tant que root, ainsi plus besoin de taper "sudo" à chaque commande
 `strings ./somenetcore.dll \| egrep '^[0-9]+\.[0-9]+\.[0-9]+$'` | Affiche le numéro de version d'assembly d'une dll net core (SemVer)
 `ps axo pid,ppid,pgrp,tty,tpgid,sess,comm \|awk '$2==1' \|awk '$1==$3'` | Liste les daemons
+`cat /etc/os-release` | Affiche la  version de l'OS
+
 
 ## /etc/hosts
 
