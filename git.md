@@ -44,6 +44,11 @@ Commande | Commentaire
 `git status`|Voir les fichiers pas encore commit
 `git switch -`|Permet de rattacher la tête à un repo local auquel on l'avait détaché
 `git switch -c new_branch_name`|Permet de créer une nouvelle branche à partir d'un repo local avec la tête détachée
+`git tag -a v1.2 9fceb02 -m "version 1.2"`|Crée un tag sur un commit
+`git push origin v1.5`|Push un tag sur le remote
+`git push origin --tags`|Push tous les tags sur le remote
+`git tag -d v1.4`|Supprime un tag. Il est supprimé uniquement en local
+`git push origin --delete <tagname>`|Supprime un tag sur le remote
 `git whatchanged`|Affiche l'historique des commits
 `set LESSCHARSET=UTF-8 (cmd) ou $env:LESSCHARSET="UTF-8" (powershell) ou LESSCHARSET=UTF-8 (bash)`|Défini l'encodage utilisé par less afin que les accents ne sautent plus. Définir la variable au niveau système pour être tranquille
 `git fetch origin && git reset --hard origin/master && git clean -f -d`|Force l'obtention des commits du remote quand le repo local a divergé. Attention les commits locaux seront perdus
