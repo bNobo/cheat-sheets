@@ -105,3 +105,28 @@ sudo ip li set mtu 1400 dev eth0
 ```
 
 > Ne pas oublier de changer l'URL du remote ex `git remote set-url origin ssh://...`
+
+
+### Utiliser plusieurs comptes GIT sur un même poste
+
+Utile quand on bosse depuis son PC perso et qu'on veut pas flinguer sa configuration perso.
+
+Editer le fichier *~/.gitconfig*, ajouter une section `user` si elle n'existe pas déjà et ajouter une section `includeIf`
+
+```ini
+[user]
+	email = email.personnel@mail.com
+	name = pseudo
+[includeIf "gitdir:~/source/repos/boulot/"]
+	path = ~/source/repos/boulot/.gitconfig
+```
+
+Créer un fichier *~/source/repos/boulot/.gitconfig* et ajouter une section `user` dedans
+
+```ini
+[user]
+	email = email.professionnel@entreprise.fr
+	name = Prénom Nom
+```
+
+Les valeurs contenues dans le fichier *~/source/repos/boulot/.gitconfig* écrasent la configuration globale quand on se trouve dans un repo sous *~/source/repos/boulot/*
