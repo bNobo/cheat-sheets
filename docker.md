@@ -11,8 +11,14 @@ Commande | Description
 
 ## bonus
 
-```
+```bash
 docker rmi -f `docker images | grep <repository_name> | awk '{print $3}'`
 ```
 
 Supprime toutes les images d'un repository donné. A noter l'utilisation du back tick qui permet d'exécuter la commande `docker rmi` avec comme argument chaque ligne retournée par la commande `docker images`
+
+Et pour supprimer tous les tags associés à une image et finalement supprimer l'image :
+
+```bash
+docker rmi `docker images | grep <image_id> | awk '{printf "%s:%s\n", $1, $2}'`
+```
