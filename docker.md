@@ -9,7 +9,7 @@ Commande | Description
 `docker run -d -p 27017:27017 --name mongoserver --network papinet mongo:bionic` | Démarre un container en le rattachant à un network. Tous les containers sur le même network peuvent communiquer entre eux, dans cet exemple un autre container pourrait accéder à celui-ci via `mongodb://mongoserver:27017`. Ca fonctionne pour tous les protocoles, ex `http://<containername>:<port>`
 `docker commit --author "Benoît Rocco" sqlserver archi.azurecr.io/sqlserver/avocasync:1.0.0` | Ma commande préférée :) Permet de créer une nouvelle image à partir d'un container en cours d'exécution
 
-## bonus
+## Suppression d'images en masse
 
 ```bash
 docker rmi -f `docker images | grep <repository_name> | awk '{print $3}'`
@@ -22,3 +22,39 @@ Et pour supprimer tous les tags associés à une image et finalement supprimer l
 ```bash
 docker rmi `docker images | grep <image_id> | awk '{printf "%s:%s\n", $1, $2}'`
 ```
+
+## En cas d'erreur lors du binding d'un port qui n'est pourtant pas utilisé
+
+Ca m'est arrivé avec le port 1433 de SQL Server mais à priori le problème peut se produire avec n'importe quel port. Il semble que hyper-v réserve une plage de ports. Ces derniers deviennent inutilisables même s'il ne sont pas effectivement utilisés. Premièrement il faut déjà vérifier que le port n'est pas tout simplement vraiment utilisé :
+
+```bash
+netstat -aon
+```
+
+Si le port en question n'est pas dans la liste alors cette commande permet de lister les plages d'exclusion de ports : 
+
+```bash
+netsh interface ipv4 show excludedportrange protocol=tcp
+```
+
+Si le port désiré est inclu dans une des plages réservées alors pour le résoudre : 
+
+1. Disable hyper-v (which will required a couple of restarts)
+
+```bash
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+```
+
+2. When you finish all the required restarts, reserve the port you want so hyper-v doesn't reserve it back
+
+```bash
+netsh int ipv4 add excludedportrange protocol=tcp startport=1433 numberofports=2
+```
+
+3. (facultatif, perso ne n'utilise pas hyper-v) Re-Enable hyper-V (which will require a couple of restart)
+
+```bash
+dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
+```
+
+Source : https://github.com/docker/for-win/issues/3171
