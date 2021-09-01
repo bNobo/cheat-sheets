@@ -16,6 +16,15 @@ then
 fi
 ```
 
+Tester l'existence d'un répertoire :
+
+```bash
+if [[ -d "$1" ]]
+then
+    echo "$1 already exists."
+fi
+```
+
 ## Astuces
 
 Le back tick permet d'exécuter une commande autant de fois que de lignes retournées par la commande. Par exemple :
