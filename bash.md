@@ -5,7 +5,18 @@ Commande | Description
 `export HTTP_ECHO_PORT=1322 && node index.js` | set une variable d'environnement avant de démarrer une appli node en une seule ligne
 `printenv` | liste les variables d'environnement
 
-## Astuce
+## Arguments
+
+Tester un argument vide :
+
+```bash
+if [ -z "$1" ] 
+then
+  echo "empty arg"
+fi
+```
+
+## Astuces
 
 Le back tick permet d'exécuter une commande autant de fois que de lignes retournées par la commande. Par exemple :
 
