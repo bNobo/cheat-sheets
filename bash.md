@@ -25,6 +25,13 @@ then
 fi
 ```
 
+Récupérer le code de sortie renvoyé par un script bash :
+
+```bash
+command   # execute some command
+echo $?   # get exit code
+```
+
 ## Astuces
 
 Le back tick permet d'exécuter une commande autant de fois que de lignes retournées par la commande. Par exemple :
