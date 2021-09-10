@@ -38,3 +38,17 @@ Commande | Description
 Paramétrer l'IP du serveur DNS :
 
 `nameserver 192.168.58.41`
+
+## systemctl
+
+affiche le statut d'un service :
+
+`systemctl status myservice`
+
+Démarre, redémarre ou stoppe un service :
+
+`sudo systemctl start|stop|reload myservice`
+
+Après modification d'un fichier *.service* il faut redémarrer le daemon pour le recharger :
+
+`sudo systemctl daemon-reload`
