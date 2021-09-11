@@ -52,3 +52,14 @@ Démarre, redémarre ou stoppe un service :
 Après modification d'un fichier *.service* il faut redémarrer le daemon pour le recharger :
 
 `sudo systemctl daemon-reload`
+
+## Activer la connexion SSH sans mot de passe
+
+```bash
+# générer une paire de clés RSA
+ssh-keygen -t rsa -f <keyname>
+# copier la clé publique sur la machine distante (on peut aussi la copier manuellement dans le fichier ~/.ssh/authorized_keys)
+ssh-copy-id -i ~/.ssh/<keyname>.pub <login>@<remote_address>
+# se connecter sans mot de passe
+ssh -i ~/.ssh/<keyname> <login>@<remote_address>
+```
