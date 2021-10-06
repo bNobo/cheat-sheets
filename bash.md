@@ -5,6 +5,13 @@ Commande | Description
 `export HTTP_ECHO_PORT=1322 && node index.js` | set une variable d'environnement avant de démarrer une appli node en une seule ligne
 `printenv` | liste les variables d'environnement
 `command \|\| command` | exécute la seconde commande uniquement si la première échoue
+`for i in 1 2 3 4; do echo $i; done` | boucle for
+CTRL+Z | envoi le process en arrière plan
+`fg` | ramène le process au premier plan
+`history [n]` | affiche l'historique des dernières commandes
+`!!` | rappel la dernière commande
+`!502` | rappel la commande #502 dans l'historique
+`!command` | rappel la commande "command" avec les mêmes arguments que la dernière fois qu'elle a été appelée
 
 ## Arguments
 
