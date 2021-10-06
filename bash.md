@@ -4,6 +4,7 @@ Commande | Description
 --- | ---
 `export HTTP_ECHO_PORT=1322 && node index.js` | set une variable d'environnement avant de démarrer une appli node en une seule ligne
 `printenv` | liste les variables d'environnement
+`command \|\| command` | exécute la seconde commande uniquement si la première échoue
 
 ## Arguments
 
