@@ -9,9 +9,10 @@ Commande | Description
 CTRL+Z | envoi le process en arrière plan
 `fg` | ramène le process au premier plan
 `history [n]` | affiche l'historique des dernières commandes
-`!!` | rappel la dernière commande
-`!502` | rappel la commande #502 dans l'historique
-`!command` | rappel la commande "command" avec les mêmes arguments que la dernière fois qu'elle a été appelée
+`!!` | rappele la dernière commande
+`!502` | rappele la commande #502 dans l'historique
+`!command` | rappele la commande "command" avec les mêmes arguments que la dernière fois qu'elle a été appelée
+`echo !$` | !$ contient le dernier argument de la dernière commande exécutée
 
 ## Arguments
 
