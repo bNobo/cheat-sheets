@@ -8,6 +8,7 @@ Commande | Commentaire
 `git checkout -- path/to/file/to/revert`|Annule les modifications d'un fichier not staged (le fichier est extrait depuis l'index donc les modifications non staged sont écrasées) "--" facultatif
 `git checkout 9cfd4e43`|Checkout le commit dont l'id est 9cfd4e43. Le repo local se retrouve avec la tête détachée, utiliser 'git switch -' pour rattacher la tête
 `git checkout tags/v1.3.0`|Checkout le tag dont le nom est v1.3.0 dans la `branche en cours. Ajouter -b pour créer une branche
+`git checkout -b main --track <remote>/main`|Quand plusieurs remotes il faut préciser le nom complet avec --track si une branche avec le même nom existe dans plusieurs
 `git cherry-pick 6c8f33b3`|Récupère le commit d'id 6c8f33b3 (il doit `obligatoirement être dans une autre branche)
 `git cherry-pick my-branch~0 my-branch~1`|Applique les deux derniers commits de la branche my-branch à la branche en cours
 `git clone --depth 1 <git_repo>`|Clone un repo avec une profondeur de 1, c’est-à-dire qu'on ne récupère que le dernier commit
