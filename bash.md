@@ -13,6 +13,7 @@ CTRL+Z | envoi le process en arrière plan
 `!502` | rappele la commande #502 dans l'historique
 `!command` | rappele la commande "command" avec les mêmes arguments que la dernière fois qu'elle a été appelée
 `echo !$` | !$ contient le dernier argument de la dernière commande exécutée
+`echo "coucou" \| xargs echo` | xargs permet de convertir la sortie de la commande précédente en argument pour la commande suivante
 
 ## Arguments
 
