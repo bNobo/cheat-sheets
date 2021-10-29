@@ -50,10 +50,22 @@ Le back tick permet d'exécuter une commande autant de fois que de lignes retour
 docker rmi -f `docker images | grep previewservice.azurecr.io/previewapi | awk '{print $3}'`
 ```
 
+Equivalent avec `xargs`:
+
+```bash
+docker images | grep previewservice.azurecr.io/previewapi | awk '{print $3}' | xargs docker rmi -f
+```
+
 Ici la commande `docker rmi -f` sera exécutée autant de fois que de lignes retournées par la commande `docker images`
 
 Autre exemple, ici pour lister l'espace disque occupé par chaque répertoire racine :
 
 ```bash
 sudo du -sh `ls -ld /* | awk '{print $9}'`
+```
+
+Equivalent avec `xargs`:
+
+```bash
+ls -ld /* | awk '{print $9}' | xargs sudo du -sh
 ```
