@@ -26,8 +26,10 @@ Commande | Description
 `sudo -s` | Execute le shell en tant que root, ainsi plus besoin de taper "sudo" à chaque commande
 `strings ./somenetcore.dll \| egrep '^[0-9]+\.[0-9]+\.[0-9]+$'` | Affiche le numéro de version d'assembly d'une dll net core (SemVer)
 `ps axo pid,ppid,pgrp,tty,tpgid,sess,comm \|awk '$2==1' \|awk '$1==$3'` | Liste les daemons
-`cat /etc/os-release` | Affiche la  version de l'OS
-
+`cat /etc/os-release` | Affiche la version de l'OS
+`sudo service cron status` | Affiche le statut d'exécution de cron
+`sudo service cron start` | Démarre le service cron
+`sudo visudo` | Edite le fichier des sudoers
 
 ## /etc/hosts
 
@@ -38,6 +40,15 @@ Commande | Description
 Paramétrer l'IP du serveur DNS :
 
 `nameserver 192.168.58.41`
+
+## /etc/sudoers
+
+> Ne pas éditer directement ce fichier mais utiliser la commande `sudo visudo`
+
+```
+# permet à tous les sudoers d'exécuter la commande `service cron start` sans avoir à taper de mot de passe
+%sudo ALL=NOPASSWD: /usr/sbin/service cron start
+```
 
 ## systemctl
 
