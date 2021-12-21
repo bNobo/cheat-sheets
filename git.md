@@ -24,7 +24,7 @@ Commande | Commentaire
 `git fetch <remote_name>`|Fetch les modifications d'un remote
 `git log --graph --oneline`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
 `$ git log --numstat --format="" b0d6e5b.. \| awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
-`git pull remote_name master`|Pull les modifications d'un remote
+`git pull remote_name master`|Pull les modifications d'un remote. Si option pull.rebase=true alors GIT effectue automatiquement un rebase de la branche courante sur la branche master, ce qui permet de nettoyer les éventuels commits issus d'une branche intermédiaire.
 `git push --all`|Push toutes les branches
 `git push --delete origin tagname`|Supprime un tag sur le remote (git tag -d tagname pour supprimer le local)
 `git push remote_name master`|Push les modifications vers un remote
