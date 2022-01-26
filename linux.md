@@ -74,3 +74,13 @@ ssh-copy-id -i ~/.ssh/<keyname>.pub <login>@<remote_address>
 # se connecter sans mot de passe
 ssh -i ~/.ssh/<keyname> <login>@<remote_address>
 ```
+
+## Mettre à jour les sources de packages
+
+Les serveurs de noms utilisés se trouvent dans `/etc/resolv.conf`
+
+La liste des sources de package se trouve dans `/etc/apt/sources.list`
+
+Lorsqu'on ajoute une source il faut également ajouter sa clef publique dans `/etc/apt/trusted.gpg.d/` afin qu'aptitude puisse vérifier la signatures des packages.
+
+> Astuce : quand on utilise 2 distributions différentes sous WSL, on peut facilement recopier les clefs publiques de l'une à l'autre en utilisant un serveur HTTP. Dans le répertoire des clefs à récupérer taper `python3 -m http.server`. Dans l'autre distro, se placer dans le répertoire des clefs et taper `wget <ip>:8000/<key_name.gpg>`.
