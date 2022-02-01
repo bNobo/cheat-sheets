@@ -44,6 +44,8 @@ echo $?   # get exit code
 
 ## Astuces
 
+### Back tick
+
 Le back tick permet d'exécuter une commande autant de fois que de lignes retournées par la commande. Par exemple :
 
 ```bash
@@ -68,4 +70,13 @@ Equivalent avec `xargs`:
 
 ```bash
 ls -ld /* | awk '{print $9}' | xargs sudo du -sh
+```
+
+### Créer un checksum (hash) et le convertir en base64
+
+La commande `sha256sum` permet de générer un hash à partir du contenu d'un fichier mais le résultat est sous forme de hexstring alors que le navigateur attend du base64. La commande ci-dessous permet de convertir le hexstring en binaire avant d'envoyer les données à la commande base64 et ainsi obtenir directement un checksum utilisable dans le navigateur.
+
+```bash
+$ sha256sum --text script.js | awk '{ print $1 }' | xxd -r -p | base64
+2wi3v50GQUHK7XnLYfYCoUIWxObbOC7qbU3cptMBBb8=
 ```
