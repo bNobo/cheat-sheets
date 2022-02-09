@@ -80,3 +80,43 @@ La commande `sha256sum` permet de générer un hash à partir du contenu d'un fi
 $ sha256sum --text script.js | awk '{ print $1 }' | xxd -r -p | base64
 2wi3v50GQUHK7XnLYfYCoUIWxObbOC7qbU3cptMBBb8=
 ```
+
+Il est également possible d'encoder directement du texte sans passer par un fichier :
+
+```bash
+$ printf "coucou" | sha256sum --text | awk '{ print $1 }' | xxd -r -p | base64
+O2TRH/CsXaaiYrNJd7s9Ka4KTAMJR8EeGg2eUchI93I=
+```
+
+Mais dans ce cas attention ! Le résultat dépendra de l'encodage utilisé par le shell. S'assurer qu'on exécute la commande avec la bonne locale :
+
+```bash
+$ locale
+LANG=en_US.UTF-8
+LANGUAGE=
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_PAPER="en_US.UTF-8"
+LC_NAME="en_US.UTF-8"
+LC_ADDRESS="en_US.UTF-8"
+LC_TELEPHONE="en_US.UTF-8"
+LC_MEASUREMENT="en_US.UTF-8"
+LC_IDENTIFICATION="en_US.UTF-8"
+LC_ALL=
+```
+
+Et si ce n'est pas le cas sélectionner la locale désirée :
+
+```bash
+$ locale -a
+[...]
+$ export LC_ALL="fr_FR"
+```
+
+Egalement éviter d'utiliser la commande `echo` car cette dernière ajoute un `\n` à la fin.
+
+> Pour faire un SHA512 utiliser la commande `sha512sum`. Pour choisir un autre algorithme utiliser la commande `shasum -a`.
