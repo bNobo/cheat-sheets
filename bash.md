@@ -88,7 +88,11 @@ $ printf "coucou" | sha256sum --text | awk '{ print $1 }' | xxd -r -p | base64
 O2TRH/CsXaaiYrNJd7s9Ka4KTAMJR8EeGg2eUchI93I=
 ```
 
-Mais dans ce cas attention ! Le résultat dépendra de l'encodage utilisé par le shell. S'assurer qu'on exécute la commande avec la bonne locale :
+Eviter d'utiliser la commande `echo` ou `nano` car ces derniers ajoutent un `\n` à la fin.
+
+> Pour faire un SHA512 utiliser la commande `sha512sum`. Pour choisir un autre algorithme utiliser la commande `shasum -a`.
+
+## Changer la locale
 
 ```bash
 $ locale
@@ -108,15 +112,10 @@ LC_MEASUREMENT="en_US.UTF-8"
 LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=
 ```
-
-Et si ce n'est pas le cas sélectionner la locale désirée :
+Sélectionner la locale désirée :
 
 ```bash
 $ locale -a
 [...]
 $ export LC_ALL="fr_FR"
 ```
-
-Egalement éviter d'utiliser la commande `echo` car cette dernière ajoute un `\n` à la fin.
-
-> Pour faire un SHA512 utiliser la commande `sha512sum`. Pour choisir un autre algorithme utiliser la commande `shasum -a`.
