@@ -131,3 +131,33 @@ Créer un fichier *~/source/repos/boulot/.gitconfig* et ajouter une section `use
 ```
 
 Les valeurs contenues dans le fichier *~/source/repos/boulot/.gitconfig* écrasent la configuration globale quand on se trouve dans un repo sous *~/source/repos/boulot/*
+	
+### Compter le nombre de lignes de code
+
+Installer le package CLOC (Count Lines Of Code).
+	
+```bash
+$ sudo apt update
+$ sudo apt install cloc
+```
+	
+Ensuite exécuter CLOC sur le répertoire à scanner
+	
+```bash
+$ cloc .
+      10 text files.
+      10 unique files.
+       4 files ignored.
+
+github.com/AlDanial/cloc v 1.82  T=0.19 s (37.3 files/s, 836.4 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Bourne Shell                     3             17             12             54
+Markdown                         1             21              0             39
+YAML                             1              0              0              6
+DOS Batch                        2              2              0              6
+-------------------------------------------------------------------------------
+SUM:                             7             40             12            105
+-------------------------------------------------------------------------------
+```
