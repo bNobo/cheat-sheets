@@ -90,7 +90,7 @@ O2TRH/CsXaaiYrNJd7s9Ka4KTAMJR8EeGg2eUchI93I=
 
 Eviter d'utiliser la commande `echo` ou `nano` car ces derniers ajoutent un `\n` à la fin.
 
-Attention au caractère utilisé pour définir la chaîne de caractères. Le caractère ' et le caractère " vont conduire à l'utilisation d'un encodage différent. Le résultat sera identique pour tous les caractères appartenant à la table ASCII non étendue, mais ce ne sera pas le cas pour les autres.
+Attention, si la chaîne à encoder contient un caractère $, alors il faut l'échapper ou bien utiliser une simple cote afin qu'il ne soit pas interprété comme une variable.
 
 > Pour faire un SHA512 utiliser la commande `sha512sum`. Pour choisir un autre algorithme utiliser la commande `shasum -a`.
 
