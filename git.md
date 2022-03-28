@@ -22,6 +22,8 @@ Commande | Commentaire
 `git diff commit1 commit2`|Compare deux commits (ex HEAD\~0, HEAD\~1, 89de516, …)
 `git diff nomfichier`|Affiche les modifications apportées à un fichier en particulier. **Ajouter -b pour ignorer les fins de lignes**
 `git diff --stat 118f63c`|Affiche un résumé avec le nombre d'ajouts et suppressions effectués dans chaque fichier + total depuis le commit 118f63c
+`git diff --stat topic main`|Affiche les différences entre la branche topic et la branche main
+`git diff --stat topic...main`|Affiche les modifications apportées à la branche main depuis que la branche topic en a été tirée`
 `git fetch <remote_name>`|Fetch les modifications d'un remote
 `git log --graph --oneline`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
 `$ git log --numstat --format="" b0d6e5b.. \| awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
