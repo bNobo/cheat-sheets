@@ -31,11 +31,7 @@ DBCC SHRINKFILE (db_file_name, 10);
 ## Filter sp_who2 results
 
 ```sql
-DROP TABLE IF EXISTS #sp_who2
-
-GO
-
-CREATE TABLE #sp_who2
+declare @sp_who2 TABLE
 (SPID INT, 
 Status VARCHAR(1000) NULL, 
 Login SYSNAME NULL, 
@@ -48,14 +44,10 @@ DiskIO INT NULL,
 LastBatch VARCHAR(1000) NULL, 
 ProgramName VARCHAR(1000) NULL, 
 SPID2 INT,
-REQUESTID INT)
+REQUESTID INT);
 
-GO
+INSERT INTO @sp_who2
+EXEC sp_who2;
 
-INSERT INTO #sp_who2
-EXEC sp_who2
-
-GO 
-
-select * from #sp_who2 where DBName = 'Whatever you want'
+select * from @sp_who2 where DBName = 'Grants';
 ```
