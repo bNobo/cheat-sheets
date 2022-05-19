@@ -5,7 +5,7 @@
 Commande | Commentaire
 --- | --- 
 `git add *`|Stage tous les fichiers modifiés (les ajoute à l'index)
-`git checkout -- path/to/file/to/revert`|Annule les modifications d'un fichier not staged (le fichier est extrait depuis l'index donc les modifications non staged sont écrasées) "--" facultatif
+`git checkout origin/main -- path/to/file/to/revert`|Récupère uniquement le fichier path/to/file/to/revert depuis la branche origin/main
 `git checkout 9cfd4e43`|Checkout le commit dont l'id est 9cfd4e43. Le repo local se retrouve avec la tête détachée, utiliser 'git switch -' pour rattacher la tête
 `git checkout tags/v1.3.0`|Checkout le tag dont le nom est v1.3.0 dans la `branche en cours. Ajouter -b pour créer une branche
 `git checkout -b main --track <remote>/main`|Quand plusieurs remotes il faut préciser le nom complet avec --track si une branche avec le même nom existe dans plusieurs
