@@ -77,14 +77,14 @@ ls -ld /* | awk '{print $9}' | xargs sudo du -sh
 La commande `sha256sum` permet de générer un hash à partir du contenu d'un fichier mais le résultat est sous forme de hexstring alors que le navigateur attend du base64. La commande ci-dessous permet de convertir le hexstring en binaire avant d'envoyer les données à la commande base64 et ainsi obtenir directement un checksum utilisable dans le navigateur.
 
 ```bash
-$ sha256sum --text script.js | awk '{ print $1 }' | xxd -r -p | base64
+$ sha256sum --text script.js | xxd -r -p | base64
 2wi3v50GQUHK7XnLYfYCoUIWxObbOC7qbU3cptMBBb8=
 ```
 
 Il est également possible d'encoder directement du texte sans passer par un fichier :
 
 ```bash
-$ printf 'coucou' | sha256sum --text | awk '{ print $1 }' | xxd -r -p | base64
+$ printf 'coucou' | sha256sum --text | xxd -r -p | base64
 O2TRH/CsXaaiYrNJd7s9Ka4KTAMJR8EeGg2eUchI93I=
 ```
 
