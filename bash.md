@@ -94,6 +94,13 @@ Attention, si la chaîne à encoder contient un caractère $, alors il faut l'é
 
 > Pour faire un SHA512 utiliser la commande `sha512sum`. Pour choisir un autre algorithme utiliser la commande `shasum -a`.
 
+Pour l'utiliser dans l'attribut `integrity` de l'élément `<script>` il faut ajouter le préfixe `sha-256`. Pour le faire en une seule ligne :
+
+```bash
+$ printf "sha256-$(sha256sum --text script.js | xxd -r -p | base64)"
+sha256-2wi3v50GQUHK7XnLYfYCoUIWxObbOC7qbU3cptMBBb8=
+```
+
 ## Changer la locale
 
 ```bash
