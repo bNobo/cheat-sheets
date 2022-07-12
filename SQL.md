@@ -51,3 +51,25 @@ EXEC sp_who2;
 
 select * from @sp_who2 where DBName = 'Grants';
 ```
+
+## Create or update a password
+
+```sql
+create login <name> with password=N'<password>'
+alter login <name> with password=N'<password>'
+```
+
+## List logins and users
+
+```sql
+select * from sys.sql_logins
+select * from sys.database_principals
+```
+
+## Firewall rules
+
+```sql
+select * from sys.firewall_rules
+select * from sys.database_firewall_rules
+exec sp_set_firewall_rule N'<name>', '<start_ip>', '<end_ip>'
+```
