@@ -50,6 +50,10 @@ Paramétrer l'IP du serveur DNS :
 %sudo ALL=NOPASSWD: /usr/sbin/service cron start
 ```
 
+## /etc/ssh/sshd_config
+
+Ce fichier permet de configurer le daemon SSH. Par exemple le port à utiliser (22 par défaut) ou activer l'authentification par mot de passe (désactivée par défaut pour des raisons de sécurité : prévention du brute force).
+
 ## systemctl
 
 affiche le statut d'un service :
