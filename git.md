@@ -18,6 +18,7 @@ Commande | Commentaire
 `git config --global pull.rebase true`|Indique à GIT de toujours faire un rebase `lors du pull
 `git config --local core.autocrlf false`|Empêche GIT de remplacer les CRLF par des LF lors de la publication, très utile quand on publie des fichiers signés !
 `git config --local credential.helper manager`|Indique à GIT de stocker les credentials dans Windows, ainsi il pose la question une seule fois
+`git describe --tags`|Affiche le dernier tag appliqué sur la branche
 `git diff`|Voir les modifications pas encore commit
 `git diff commit1 commit2`|Compare deux commits (ex HEAD\~0, HEAD\~1, 89de516, …)
 `git diff nomfichier`|Affiche les modifications apportées à un fichier en particulier. **Ajouter -b pour ignorer les fins de lignes**
