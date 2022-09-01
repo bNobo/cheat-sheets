@@ -165,3 +165,16 @@ DOS Batch                        2              2              0              6
 SUM:                             7             40             12            105
 -------------------------------------------------------------------------------
 ```
+
+### Utiliser VSCode comme outil de merge
+
+Ajouter dans `.gitconfig` :
+	
+```config
+[merge]
+  tool = code
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+```
+
+Exécuter la commande `git mergetool` à chaque fois qu'il y a des conflits à résoudre.
