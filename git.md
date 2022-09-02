@@ -178,3 +178,22 @@ Ajouter dans `.gitconfig` :
 ```
 
 Exécuter la commande `git mergetool` à chaque fois qu'il y a des conflits à résoudre.
+	
+> Remarque : VSCode n'est vraiment pas terrible comme outil de merge
+	
+### Utiliser P4merge comme outil de merge
+
+Ajouter dans `.gitconfig` :
+	
+```config
+[diff]
+  	tool = p4merge
+[merge]
+  	tool = p4merge
+[mergetool]
+	keepBackup = false
+```
+	
+> keepBackup = false permet de supprimer automatiquement le fichier .orig généré par mergetool
+	
+Exécuter la commande `git mergetool` à chaque fois qu'il y a des conflits à résoudre.
