@@ -11,6 +11,7 @@ Commande | Commentaire
 `git checkout -b main --track <remote>/main`|Quand plusieurs remotes il faut préciser le nom complet avec --track si une branche avec le même nom existe dans plusieurs
 `git cherry-pick 6c8f33b3`|Récupère le commit d'id 6c8f33b3 (il doit `obligatoirement être dans une autre branche)
 `git cherry-pick my-branch~0 my-branch~1`|Applique les deux derniers commits de la branche my-branch à la branche en cours
+`git clean -fd`|Supprime les fichiers non suivis. Remplacer `f` par `n` pour dry run. Ajouter `x` pour supprimer également les fichiers exclus par `.gitignore` ce qui permet de remettre le repo dans le même état que le remote.
 `git clone --depth 1 <git_repo>`|Clone un repo avec une profondeur de 1, c’est-à-dire qu'on ne récupère que le dernier commit
 `git commit --amend --date="$(date)"`|Change la date du dernier commit
 `git commit -m "message"`|Commit les modifications actuellement sur le stage
@@ -181,7 +182,7 @@ Exécuter la commande `git mergetool` à chaque fois qu'il y a des conflits à r
 	
 > Remarque : VSCode n'est vraiment pas terrible comme outil de merge
 	
-### Utiliser P4merge comme outil de merge
+### Utiliser p4merge comme outil de merge
 
 Ajouter dans `.gitconfig` :
 	
