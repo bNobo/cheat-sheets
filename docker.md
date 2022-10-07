@@ -37,7 +37,7 @@ Si le port en question n'est pas dans la liste alors cette commande permet de li
 netsh interface ipv4 show excludedportrange protocol=tcp
 ```
 
-Si le port désiré est inclu dans une des plages réservées alors pour le résoudre : 
+Si le port désiré est inclu dans une des plages réservées alors pour le résoudre (dans une invit' avec droits admin) : 
 
 1. Disable hyper-v (which will required a couple of restarts)
 
