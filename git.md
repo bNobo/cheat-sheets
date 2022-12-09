@@ -200,3 +200,5 @@ Ajouter dans `.gitconfig` :
 Exécuter la commande `git mergetool` à chaque fois qu'il y a des conflits à résoudre.
 	
 Exécuter la commande `git difftool` pour afficher les diffs en cours dans p4merge (ça évite de devoir obligatoirement ouvrir VSCode ou VStudio).
+
+> Si une invite bash GIT est ouverte au moment de l'installation de p4merge, il faut la fermer et en ouvrir un autre afin de bénéficier de la mise à jour des variables d'environnement.
