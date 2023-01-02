@@ -16,6 +16,7 @@ Command | Description
 `az webapp create-remote-connection -g ResourceGroup -n WebAppName -p LocalPortNumber` | Open a TCP tunnel from local machine to webapp. Add `--slot staging` parameter to connect to a specific slot. You can now SSL through the tunnel via `ssh root@127.0.0.1 -p 9000`
 `az sql db restore --dest-name Backup_2022_12_05_1300 -z true --elastic-pool ElasticPoolName --name DatabaseName --server ServerName --time "2022-12-05T13:00:00" --resource-group ResourceGroupName` | Point in time restore of a database with geo-replication (`-z true`)
 `az sql db list --server ServerName --resource-group ResourceGroupName > dblist.json` | Get databases list in a json file
+`az sql elastic-pool create --name <elastic-pool-name> --resource-group <resource-group-name> --server <server-name> --edition <elastic-pool-edition> --dtu <elastic-pool-dtu> --db-dtu-min <db-dtu-min-value> --db-dtu-max <db-dtu-max-value>` | Create a new SQL Elastic pool with classic DTU configuration
 
 ## References
 
