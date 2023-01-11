@@ -20,6 +20,12 @@ RESTORE HEADERONLY from disk='D:\Backups\database.bak'
 RESTORE FILELISTONLY from disk='D:\Backups\AR24_sprint75.bak'
 ```
 
+## View database size
+
+```sql
+exec sp_spaceused
+```
+
 ## Reduce database size
 
 ```sql
