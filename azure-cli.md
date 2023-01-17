@@ -17,6 +17,7 @@ Command | Description
 `az sql db restore --dest-name Backup_2022_12_05_1300 -z true --elastic-pool ElasticPoolName --name DatabaseName --server ServerName --time "2022-12-05T13:00:00" --resource-group ResourceGroupName` | Point in time restore of a database with geo-replication (`-z true`)
 `az sql db list --server ServerName --resource-group ResourceGroupName > dblist.json` | Get databases list in a json file
 `az sql elastic-pool create --name <elastic-pool-name> --resource-group <resource-group-name> --server <server-name> --edition <elastic-pool-edition> --dtu <elastic-pool-dtu> --db-dtu-min <db-dtu-min-value> --db-dtu-max <db-dtu-max-value>` | Create a new SQL Elastic pool with classic DTU configuration
+`az sql server ad-admin create --server-name <server-name> --resource-group <resource-group-name> --display-name "<display-name>" --object-id <object-guid>` | Set AD admin for the server. It is NOT possible to have more than one AD admin. `create` will replace the existing one if any.
 
 ## References
 
