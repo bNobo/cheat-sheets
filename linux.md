@@ -5,7 +5,8 @@
 Commande | Description
 --- | ---
 `alias ll='ls -lh'` | crée ou modifie un alias de commande
-`passwd` | changer son mot de passe
+`passwd` | changer le mot de passe de l'utilisateur actuel (nécessite de connaitre le mot de passe)
+`passwd <username>` | changer le mot de passe de l'utilisateur username (ne nécessite pas de connaitre son mot de passe)
 `cat /etc/passwd` | afficher la liste des utilisateurs
 `useradd a.bob` | crée un nouvel utilisateur a.bob
 `usermod -a -G root a.bob` | ajouter l'utilisateur a.bob au groupe root
