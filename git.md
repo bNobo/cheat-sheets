@@ -26,18 +26,18 @@ Commande | Commentaire
 `git diff nomfichier`|Affiche les modifications apportées à un fichier en particulier. **Ajouter -b pour ignorer les fins de lignes**
 `git diff --stat 118f63c`|Affiche un résumé avec le nombre d'ajouts et suppressions effectués dans chaque fichier + total depuis le commit 118f63c
 `git diff --stat main...topic`|Affiche les modifications apportées à la branche topic depuis le moment où elle a été tirée de la branche main`
-`git diff --diff-filter=D --summary 'origin/master@{12 month ago}...origin/master'`|Liste tous les fichiers supprimés au cours des 12 derniers mois
+`git diff --diff-filter=D --summary 'origin/main@{12 month ago}...origin/main'`|Liste tous les fichiers supprimés au cours des 12 derniers mois
 `git fetch <remote_name>`|Fetch les modifications d'un remote
 `git log --graph --oneline`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
 `$ git log --numstat --format="" b0d6e5b.. \| awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
 `git log --diff-filter=D --summary`|Affiche une liste de tous les commits qui ont supprimé des fichiers dans la branche actuelle
-`git pull remote_name master`|Pull les modifications d'un remote. Si option pull.rebase=true alors GIT effectue automatiquement un rebase de la branche courante sur la branche master, ce qui permet de nettoyer les éventuels commits issus d'une branche intermédiaire.
+`git pull remote_name main`|Pull les modifications d'un remote. Si option pull.rebase=true alors GIT effectue automatiquement un rebase de la branche courante sur la branche main, ce qui permet de nettoyer les éventuels commits issus d'une branche intermédiaire.
 `git push --all`|Push toutes les branches
 `git push --delete origin tagname`|Supprime un tag sur le remote (git tag -d tagname pour supprimer le local)
-`git push remote_name master`|Push les modifications vers un remote
+`git push remote_name main`|Push les modifications vers un remote
 `git push --set-upstream origin new-logo`|Push la branche actuelle qui n'existe `pas encore sur le remote (ou -u origin)
 `git rebase -i 89de516`|Effectue un rebase interractif sur le commit 89de516
-`git rebase --onto master`|Rebase la branche actuelle à partir de la master
+`git rebase --onto main`|Rebase la branche actuelle à partir de la main
 `git remote`|Obtenir la liste des remotes
 `git remote add remote_name https://github.com/remote_name/repo_name.git`|Ajouter un remote
 `git remote prune origin`|Supprime les branches "remotes" du repo local qui n'existent plus sur le remote 
@@ -59,7 +59,7 @@ Commande | Commentaire
 `git push origin --delete <tagname>`|Supprime un tag sur le remote
 `git whatchanged`|Affiche l'historique des commits
 `set LESSCHARSET=UTF-8 (cmd) ou $env:LESSCHARSET="UTF-8" (powershell) ou LESSCHARSET=UTF-8 (bash)`|Défini l'encodage utilisé par less afin que les accents ne sautent plus. Définir la variable au niveau système pour être tranquille
-`git fetch origin && git reset --hard origin/master && git clean -f -d`|Force l'obtention des commits du remote quand le repo local a divergé. Attention les commits locaux seront perdus
+`git fetch origin && git reset --hard origin/main && git clean -f -d`|Force l'obtention des commits du remote quand le repo local a divergé. Attention les commits locaux seront perdus
 `git count-objects -vH`|Affiche la taille du repo
 
 ## Extras
