@@ -41,6 +41,7 @@ Commande | Commentaire
 `git remote`|Obtenir la liste des remotes
 `git remote add remote_name https://github.com/remote_name/repo_name.git`|Ajouter un remote
 `git remote prune origin`|Supprime les branches "remotes" du repo local qui n'existent plus sur le remote 
+`git fetch && git remote prune origin && git branch -vv \| grep ': gone]'\|  grep -v "\*" \| awk '{ print $1; }' \| xargs -r git branch -D`|Supprime toutes les branches qui ont été push et qui n'existent plus sur le remote (gone).
 `git remote remove upstream`|Retirer un remote
 `git reset file.cs`|Unstage le fichier file.cs
 `git reset --hard`|Annule et supprime complètement les modifications staged
