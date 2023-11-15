@@ -28,7 +28,7 @@ Commande | Commentaire
 `git diff --stat main...topic`|Affiche les modifications apportées à la branche topic depuis le moment où elle a été tirée de la branche main`
 `git diff --diff-filter=D --summary 'origin/main@{12 month ago}...origin/main'`|Liste tous les fichiers supprimés au cours des 12 derniers mois
 `git fetch <remote_name>`|Fetch les modifications d'un remote
-`git log --graph --oneline`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
+`git log --graph --oneline --all`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
 `$ git log --numstat --format="" b0d6e5b.. \| awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
 `git log --diff-filter=D --summary`|Affiche une liste de tous les commits qui ont supprimé des fichiers dans la branche actuelle
 `git pull remote_name main`|Pull les modifications d'un remote. Si option pull.rebase=true alors GIT effectue automatiquement un rebase de la branche courante sur la branche main, ce qui permet de nettoyer les éventuels commits issus d'une branche intermédiaire.
