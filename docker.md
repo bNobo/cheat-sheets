@@ -31,13 +31,15 @@ Ca m'est arrivé avec le port 1433 de SQL Server mais à priori le problème peu
 netstat -aon
 ```
 
+S'il apparait dans la liste alors il faut stopper l'application. L'id du process apparait en dernière colonne. Il suffit de faire un `kill`.
+
 Si le port en question n'est pas dans la liste alors cette commande permet de lister les plages d'exclusion de ports : 
 
 ```bash
 netsh interface ipv4 show excludedportrange protocol=tcp
 ```
 
-Si le port désiré est inclu dans une des plages réservées alors pour le résoudre (dans une invit' avec droits admin) : 
+Si le port désiré est inclu dans une des plages réservées alors, souvent celà vient d'hyper-v. Pour le résoudre (dans une invite avec droits admin) : 
 
 1. Disable hyper-v (which will required a couple of restarts)
 
@@ -51,10 +53,16 @@ dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 netsh int ipv4 add excludedportrange protocol=tcp startport=1433 numberofports=2
 ```
 
-3. (facultatif, perso ne n'utilise pas hyper-v) Re-Enable hyper-V (which will require a couple of restart)
+3. (facultatif, perso je n'utilise pas hyper-v) Re-Enable hyper-V (which will require a couple of restart)
 
 ```bash
 dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
+```
+
+Si besoin de supprimer une plage de ports réservée :
+
+```bash
+netsh interface ipv4 delete excludedportrange protocol=tcp 1433 2
 ```
 
 Source : https://github.com/docker/for-win/issues/3171
