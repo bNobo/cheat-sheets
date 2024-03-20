@@ -16,3 +16,13 @@ Apps executed by the current user dumps go to `%LOCALAPPDATA%\CrashDumps`. Windo
 To change dump folder add a `DumpFolder` string value and set it to `C:\ProgramData`
 
 Source : https://support.microfocus.com/kb/doc.php?id=7013369#
+
+## Troubleshoot XBox account issue
+
+reset windows store app with `wsreset.exe`: 
+
+if problem still there, reset xbox app:
+
+```powershell
+Get-AppxPackage *gamingservices* -allusers | remove-appxpackage -allusers
+```
