@@ -24,5 +24,6 @@ debut(.*?)fin
 
 > 01.02.**12.13.14.15.16.12**.03
 
-
 `(\1)` => le contenu du groupe doit être identique au contenu du groupe 1
+
+`"(?![0-9]).+?"` => Rechercher toutes les chaines de caractères (entre guillements) ne commençant pas par un chiffre
