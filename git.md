@@ -206,3 +206,9 @@ Exécuter la commande `git mergetool` à chaque fois qu'il y a des conflits à r
 Exécuter la commande `git difftool` pour afficher les diffs en cours dans p4merge (ça évite de devoir obligatoirement ouvrir VSCode ou VStudio).
 
 > Si une invite bash GIT est ouverte au moment de l'installation de p4merge, il faut la fermer et en ouvrir un autre afin de bénéficier de la mise à jour des variables d'environnement.
+
+### Supprimer les branches locales qui ne sont plus suivies
+
+`git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D`
+
+Source : https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
