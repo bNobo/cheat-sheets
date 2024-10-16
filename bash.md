@@ -6,7 +6,8 @@ Commande | Description
 `printenv` | liste les variables d'environnement
 `command \|\| command` | exécute la seconde commande uniquement si la première échoue
 `for i in 1 2 3 4; do echo $i; done` | boucle for
-`for i in {1..17}; do echo $1; done` | boucle for sur un range
+`for i in {1..17}; do echo $i; done` | boucle for sur un range
+`for name in *.png; do echo $name; done` | boucle sur tous les fichiers correspondants au filtre
 CTRL+Z | envoi le process en arrière plan
 `fg` | ramène le process au premier plan
 `history [n]` | affiche l'historique des dernières commandes
@@ -15,7 +16,9 @@ CTRL+Z | envoi le process en arrière plan
 `!command` | rappele la commande "command" avec les mêmes arguments que la dernière fois qu'elle a été appelée
 `echo !$` | !$ contient le dernier argument de la dernière commande exécutée
 `echo "coucou" \| xargs echo` | xargs permet de convertir la sortie de la commande précédente en argument pour la commande suivante
-`echo ${string_var:(-2)}` | affiche les deux derniers caractères de la variable string_var
+`printf ${name:(-2)}` | affiche les deux derniers caractères de la variable name
+`printf ${name:5}` | affiche le contenu de la variable name à partir du caractère d'index 5
+`printf ${name:2:3}` | prend 3 caractères à partir du caractère d'index 2 dans la variable name
 
 ## Arguments
 
