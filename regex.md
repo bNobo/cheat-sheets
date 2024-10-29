@@ -27,3 +27,21 @@ debut(.*?)fin
 `(\1)` => le contenu du groupe doit être identique au contenu du groupe 1
 
 `"(?![0-9]).+?"` => Rechercher toutes les chaines de caractères (entre guillements) ne commençant pas par un chiffre
+
+## Regex replace avec référence au groupe de capture
+
+Rechercher `@Localizer\["(.*?)"\]`
+
+Remplacer `$1`
+
+Exemple : 
+
+```html
+<p>@Localizer["bla bla bla"]</p>
+```
+devient
+```html
+<p>bla bla bla</p>
+```
+
+
