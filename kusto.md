@@ -29,3 +29,12 @@ requests
 | order by timestamp asc
 | project timestamp, name, resultCode, application_Version
 ```
+
+Use ASCII instead of unicode to improve perf.
+
+```kusto
+requests
+| where resultCode in (500, 404) and name matches regex @"^GET \/forward\/[[:word:]]{8}-[[:word:]]{4}-[[:word:]]{4}-[[:word:]]{4}-[[:word:]]{12}$"
+| order by timestamp asc
+| project timestamp, name, resultCode, application_Version
+```
