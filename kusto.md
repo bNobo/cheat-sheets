@@ -18,3 +18,14 @@ requests
 | join kind=leftouter (traces | project operation_Id, operation_Name, message) on operation_Id
 | order by timestamp desc
 ```
+
+## filter with regex
+
+Find a guid in a path.
+
+```kusto
+requests
+| where resultCode in (500, 404) and name matches regex @"^GET \/path\/\w{8}-\w{4}-\w{4}-\w{4}-\w{12}$"
+| order by timestamp asc
+| project timestamp, name, resultCode, application_Version
+```
