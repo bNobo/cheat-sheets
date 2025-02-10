@@ -79,3 +79,18 @@ select * from sys.firewall_rules
 select * from sys.database_firewall_rules
 exec sp_set_firewall_rule N'<name>', '<start_ip>', '<end_ip>'
 ```
+
+## Give a server role to a user
+
+Create a user.
+```sql
+use master
+
+create user [domain\username] for login [domain\username]
+```
+
+Give them a server role.
+```sql
+exec sp_addsrvrolemember 'domain\username', 'server_role_name'
+```
+
