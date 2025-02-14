@@ -19,6 +19,12 @@ requests
 | order by timestamp desc
 ```
 
+or simply
+
+```kusto
+union * | where operation_Id == "6d0570f99a08e50f3f9b51cbc47e0634"
+```
+
 ## filter with regex
 
 Find a guid in a path.
