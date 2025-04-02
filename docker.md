@@ -66,3 +66,29 @@ netsh interface ipv4 delete excludedportrange protocol=tcp 1433 2
 ```
 
 Source : https://github.com/docker/for-win/issues/3171
+
+## Debugger un Dockerfile
+
+A chaque étape, docker crée une image intermédiaire et affiche son ID.
+
+```
+[1/2] STEP 11/12: WORKDIR "/src/Merlin.UnitTests"
+--> e83032950bdb
+```
+
+A moins d'utiliser l'argument `--no-cache` ces images sont conservées et on peut donc s'en servir pour démarrer un container.
+
+```bash
+$ docker run -it --rm e83032950bdb bash
+```
+
+On peut ainsi ouvrir un shell et explorer le container dans l'état où il se trouve quand l'erreur se produit. Par exemple s'il s'agit d'un problème de chargement de dépendances d'une librarie native on peut exécuter la commande `ldd` afin d'identifier les dépendances manquantes.
+
+```bash
+ldd libcvextern.so
+        linux-vdso.so.1 (0x00007ffca4fd2000)
+        libgeotiff.so.5 => not found
+        libopenjp2.so.7 => not found
+        libdc1394.so.25 => not found
+[...]
+```
