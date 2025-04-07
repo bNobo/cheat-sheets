@@ -213,3 +213,9 @@ Exécuter la commande `git difftool` pour afficher les diffs en cours dans p4mer
 `git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D`
 
 Source : https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
+
+### Lister les commits créés depuis le dernier tag
+
+Bien utile lors de la préparation du fichier `releases.md`.
+
+`git fetch && git log --oneline --decorate-refs-exclude=refs/heads --decorate-refs-exclude=refs/remotes $(git describe --tags --abbrev=0)..origin/main`
