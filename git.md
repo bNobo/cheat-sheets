@@ -218,4 +218,4 @@ Source : https://stackoverflow.com/questions/13064613/how-to-prune-local-trackin
 
 Bien utile lors de la préparation du fichier `releases.md`.
 
-`git fetch && git log --oneline --decorate-refs-exclude=refs/heads --decorate-refs-exclude=refs/remotes $(git describe --tags --abbrev=0)..origin/main`
+`git fetch && git log --oneline --decorate-refs-exclude=refs/heads --decorate-refs-exclude=refs/remotes --decorate-refs-exclude=HEAD $(git describe --tags --abbrev=0)..origin/main`
