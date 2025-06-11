@@ -5,6 +5,7 @@
 Commande | Commentaire
 --- | --- 
 `git add *`|Stage tous les fichiers modifiés (les ajoute à l'index)
+`git branch -D branch && git checkout branch`|Méthode plus simple et pragmatique pour reset une simple branche locale qui a divergé
 `git checkout origin/main -- path/to/file/to/revert`|Récupère uniquement le fichier path/to/file/to/revert depuis la branche origin/main
 `git checkout 9cfd4e43`|Checkout le commit dont l'id est 9cfd4e43. Le repo local se retrouve avec la tête détachée, utiliser 'git switch -' pour rattacher la tête
 `git checkout tags/v1.3.0`|Checkout le tag dont le nom est v1.3.0 dans la `branche en cours. Ajouter -b pour créer une branche
@@ -20,6 +21,7 @@ Commande | Commentaire
 `git config --local core.autocrlf false`|Empêche GIT de remplacer les CRLF par des LF lors de la publication, très utile quand on publie des fichiers signés !
 `git config --local credential.helper manager`|Indique à GIT de stocker les credentials dans Windows, ainsi il pose la question une seule fois
 `git config --global push.autoSetupRemote true`|Fait automatiquement le `--set-upstream` lors du premier `git push` d'une branche
+`git count-objects -vH`|Affiche la taille du repo
 `git describe --tags`|Affiche le dernier tag appliqué sur la branche
 `git diff`|Voir les modifications pas encore commit
 `git diff commit1 commit2`|Compare deux commits (ex HEAD\~0, HEAD\~1, 89de516, …)
@@ -28,6 +30,8 @@ Commande | Commentaire
 `git diff --stat main...topic`|Affiche les modifications apportées à la branche topic depuis le moment où elle a été tirée de la branche main`
 `git diff --diff-filter=D --summary 'origin/main@{12 month ago}...origin/main'`|Liste tous les fichiers supprimés au cours des 12 derniers mois
 `git fetch <remote_name>`|Fetch les modifications d'un remote
+`git fetch && git remote prune origin && git branch -vv \| grep ': gone]'\|  grep -v "\*" \| awk '{ print $1; }' \| xargs -r git branch -D`|Supprime toutes les branches qui ont été push et qui n'existent plus sur le remote (gone).
+`git fetch origin && git reset --hard origin/main && git clean -f -d`|Force l'obtention des commits du remote quand le repo local a divergé. Attention les commits locaux seront perdus
 `git log --graph --oneline --all`|Affiche une vue synthétique des derniers commits avec représentation graphique des branches
 `$ git log --numstat --format="" b0d6e5b.. \| awk '{files += 1}{ins += $1}{del += $2} END{print "total: "files" files, "ins" insertions(+) "del" deletions(-)"}'`|Compte le nombre total d'insertions et de suppressions depuis un commit donné (b0d6e5b dans l'exemple)
 `git log --diff-filter=D --summary`|Affiche une liste de tous les commits qui ont supprimé des fichiers dans la branche actuelle
@@ -35,14 +39,16 @@ Commande | Commentaire
 `git pull remote_name main`|Pull les modifications d'un remote. Si option pull.rebase=true alors GIT effectue automatiquement un rebase de la branche courante sur la branche main, ce qui permet de nettoyer les éventuels commits issus d'une branche intermédiaire.
 `git push --all`|Push toutes les branches
 `git push --delete origin tagname`|Supprime un tag sur le remote (git tag -d tagname pour supprimer le local)
-`git push remote_name main`|Push les modifications vers un remote
 `git push --set-upstream origin new-logo`|Push la branche actuelle qui n'existe `pas encore sur le remote (ou -u origin)
+`git push origin v1.5`|Push un tag sur le remote
+`git push origin --delete <tagname>`|Supprime un tag sur le remote
+`git push origin --tags`|Push tous les tags sur le remote
+`git push remote_name main`|Push les modifications vers un remote
 `git rebase -i 89de516`|Effectue un rebase interractif sur le commit 89de516
 `git rebase --onto main`|Rebase la branche actuelle à partir de la main
 `git remote`|Obtenir la liste des remotes
 `git remote add remote_name https://github.com/remote_name/repo_name.git`|Ajouter un remote
 `git remote prune origin`|Supprime les branches "remotes" du repo local qui n'existent plus sur le remote 
-`git fetch && git remote prune origin && git branch -vv \| grep ': gone]'\|  grep -v "\*" \| awk '{ print $1; }' \| xargs -r git branch -D`|Supprime toutes les branches qui ont été push et qui n'existent plus sur le remote (gone).
 `git remote remove upstream`|Retirer un remote
 `git reset file.cs`|Unstage le fichier file.cs
 `git reset --hard`|Annule et supprime complètement les modifications staged
@@ -55,15 +61,9 @@ Commande | Commentaire
 `git switch -`|Permet de rattacher la tête à un repo local auquel on l'avait détaché
 `git switch -c new_branch_name`|Permet de créer une nouvelle branche à partir d'un repo local avec la tête détachée
 `git tag -a v1.2 9fceb02 -m "version 1.2"`|Crée un tag sur un commit
-`git push origin v1.5`|Push un tag sur le remote
-`git push origin --tags`|Push tous les tags sur le remote
 `git tag -d v1.4`|Supprime un tag. Il est supprimé uniquement en local
-`git push origin --delete <tagname>`|Supprime un tag sur le remote
 `git whatchanged`|Affiche l'historique des commits
 `set LESSCHARSET=UTF-8 (cmd) ou $env:LESSCHARSET="UTF-8" (powershell) ou LESSCHARSET=UTF-8 (bash)`|Défini l'encodage utilisé par less afin que les accents ne sautent plus. Définir la variable au niveau système pour être tranquille
-`git fetch origin && git reset --hard origin/main && git clean -f -d`|Force l'obtention des commits du remote quand le repo local a divergé. Attention les commits locaux seront perdus
-`git branch -D branch && git checkout branch`|Méthode plus simple et pragmatique pour reset une simple branche locale qui a divergé
-`git count-objects -vH`|Affiche la taille du repo
 
 ## Extras
 
