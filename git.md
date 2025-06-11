@@ -10,6 +10,7 @@ Commande | Commentaire
 `git checkout 9cfd4e43`|Checkout le commit dont l'id est 9cfd4e43. Le repo local se retrouve avec la tête détachée, utiliser 'git switch -' pour rattacher la tête
 `git checkout tags/v1.3.0`|Checkout le tag dont le nom est v1.3.0 dans la `branche en cours. Ajouter -b pour créer une branche
 `git checkout -b main --track <remote>/main`|Quand plusieurs remotes il faut préciser le nom complet avec --track si une branche avec le même nom existe dans plusieurs
+`git checkout <commit_hash>^ -- <chemin/du/fichier>`|Restaurer le dernier état connu d'un fichier supprimé. `commit_hash` est le hash du commit dans lequel le fichier a été supprimé.
 `git cherry-pick 6c8f33b3`|Récupère le commit d'id 6c8f33b3 (il doit `obligatoirement être dans une autre branche)
 `git cherry-pick my-branch~0 my-branch~1`|Applique les deux derniers commits de la branche my-branch à la branche en cours
 `git clean -fd`|Supprime les fichiers non suivis. Remplacer `f` par `n` pour dry run. Ajouter `x` pour supprimer également les fichiers exclus par `.gitignore` ce qui permet de remettre le repo dans le même état que le remote.
