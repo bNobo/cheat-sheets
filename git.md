@@ -54,7 +54,8 @@ Commande | Commentaire
 `git reset --hard`|Annule et supprime complètement les modifications staged
 `git reset --soft HEAD~1`|Annule le dernier commit (les modifications reviennent `non staged)
 `git rm NeedABreak/publish/needabreak-v1.0.0.zip`|Supprime un fichier. Si le `fichier existe localement on peut le conserver avec "--cached" ou le supprimer complètement avec "-f"
-`git show 89de516`|Affiche le contenu d'un commit
+`git show <commit_hash>`|Affiche le contenu d'un commit donné
+`git show <commit_hash>:<chemin/du/fichier>`|Affiche le contenu d'un fichier spécifique dans un commit donné
 `git stash`|Mets de côté toutes les modifications
 `git stash apply`|Applique les modifications mises de côté
 `git status`|Voir les fichiers pas encore commit
