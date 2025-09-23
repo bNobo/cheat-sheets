@@ -44,3 +44,13 @@ requests
 | order by timestamp asc
 | project timestamp, name, resultCode, application_Version
 ```
+
+## extend result with splitted value
+
+```kusto
+requests
+| where timestamp >= ago(7d)
+| extend segments = split(url, "/")
+| extend guid = tostring(segments[-2])
+| distinct guid
+```
