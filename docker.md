@@ -92,3 +92,44 @@ ldd libcvextern.so
         libdc1394.so.25 => not found
 [...]
 ```
+## Libérer de l'espace disque en compactant le disque virtuel
+
+Nettoyer les images, containers et networks avec `docker system prune` ne suffit pas car l'espace alloué pour le disque virtuel reste alloué même s'il est vide. On peut rapidement se retrouver avec un fichier de plusieurs dizaines voire centaines de Go. Dans ce cas pour gagner de l'espace il faut compacter le disque virtuel. Exemple avec podman (le principe est le même pour docker)
+
+1. Démarrer la machine et entrer dedans :
+```sh
+podman machine start
+podman machine ssh
+```
+2. Remplir l’espace libre (indispensable pour que le compactage fonctionne) :
+```sh
+dd if=/dev/zero of=zero.fill bs=1M || true
+rm zero.fill
+sync
+```
+3. Quitter et arrêter la machine, stopper WSL :
+```sh
+exit
+podman machine stop
+wsl --shutdown
+```
+
+Ensuite démarrer `diskpart` et exécuter les instructions suivantes. Le fichier pour podman est généralement dans `C:\Users\<user>\.local\share\containers\podman\machine\wsl\wsldist\podman-machine-default\ext4.vhdx`
+
+```diskpart
+select vdisk file="C:\Users\<user>\...\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit
+```
+
+### Alternative plus radicale : repartir de zéro
+
+Supprimer et recréer la machine, toutes les images seront perdues.
+
+```sh
+podman machine rm
+podman machine init
+podman machine start
+```
