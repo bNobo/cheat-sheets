@@ -19,6 +19,7 @@ CTRL+Z | envoi le process en arrière plan
 `printf ${name:(-2)}` | affiche les deux derniers caractères de la variable name
 `printf ${name:5}` | affiche le contenu de la variable name à partir du caractère d'index 5
 `printf ${name:2:3}` | prend 3 caractères à partir du caractère d'index 2 dans la variable name
+`time command` | exécute la commande en mesurant sont temps d'exécution
 
 ## Arguments
 
