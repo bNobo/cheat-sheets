@@ -133,3 +133,9 @@ podman machine rm
 podman machine init
 podman machine start
 ```
+
+## Alternative PowerShell
+
+```powershell
+optimize-vhd -Path "C:\Users\<user>\.local\share\containers\podman\machine\wsl\wsldist\podman-machine-default\ext4.vhdx" -Mode full
+```
