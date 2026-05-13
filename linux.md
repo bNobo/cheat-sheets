@@ -97,3 +97,23 @@ Afficher le journal d'une unité donnée :
 ```bash
 journalctl -u <servicename>
 ```
+
+## ImageMagick
+
+Ce package permet de convertir n'importe quel format d'image (heic, psd, webp, ...).
+
+Installation : `sudo apt install -y imagemagick`
+
+Utilisation : `convert <source_file> [options] <destination_file>`
+
+Exemple pour convertir tous les PSD du répertoire actuel en WEBP :
+
+```bash
+for f in *.psd; do
+  convert $f[0] -resize 1000x -quality 70 $f.webp;
+done
+```
+
+> `[0]` obligatoire pour forcer ImageMagick à prendre l'image composite applatie et pas un calque.
+
+
